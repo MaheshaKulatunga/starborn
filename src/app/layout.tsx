@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
+import { Navigation } from "./components/navigation"
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -25,10 +22,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`flex flex-col h-screen justify-between ${geistMono.variable} antialiased`}>
+        <header className="top-0 flex flex-wrap gap-6 items-center justify-center p-4 w-screen">
+          {/* <p>Rocket Tracker</p> */}
+          < Navigation />
+        </header>
         {children}
+        <footer className="fixed bottom-0 flex flex-wrap gap-6 items-center justify-center p-4 w-screen">
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="/about"
+        >
+          About
+        </a>
+
+      </footer>
       </body>
     </html>
   );
