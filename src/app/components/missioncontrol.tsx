@@ -15,13 +15,13 @@ export const MissionControl = ({ launches }: { launches: [Launch] }) => {
 
   return (
     <div className="flex w-full h-full border overflow-hidden">
-      <div className="w-1/5 border-r overflow-y-scroll p-4">
-        <ul className="space-y-2">
+      <div className="w-1/5 border-r overflow-y-scroll">
+        <ul className="">
           {launches.map((launch: Launch) => (
             <li
               key={launch.id}
-              className="p-4 text-white-700 ">
-              <a className='' onClick={(e) => handleClick(e, launch)}>
+              className="text-white-700 flex items-center justify-between w-full font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3">
+              <a className='p-4 w-full h-full' onClick={(e) => handleClick(e, launch)}>
                 <div className="flex">
                   <h1 className='text-2xl font-extrabold'>
                     {launch.name}
